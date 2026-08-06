@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ExecutionPolicy *)",
+      "PowerShell(& \".\\\\venv\\\\Scripts\\\\python.exe\" -c \"import sys; print\\(sys.executable\\)\")",
+      "PowerShell(& \"C:\\\\Users\\\\safee\\\\Desktop\\\\WORk\\\\resource platform\\\\resource platform\\\\venv\\\\Scripts\\\\python.exe\" -c \"import groq; print\\('groq ok'\\)\")",
+      "PowerShell(python --version; where.exe python)"
+    ]
+  }
+}

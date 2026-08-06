@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazz Resource Platform Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <h1>Jazz Platform</h1>
+                </div>
+                <p class="subtitle">Resource Management Chatbot</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h2>Quick Reference Tools</h2>
+                    <ul class="nav-links">
+                        <li onclick="suggestQuery('who is in Analytics & Insights?')">
+                            <span class="link-icon">📊</span> Analytics Practice
+                        </li>
+                        <li onclick="suggestQuery('what is the email of Ehsan Ismail?')">
+                            <span class="link-icon">✉️</span> Email Lookups
+                        </li>
+                        <li onclick="suggestQuery('list flagged resources')">
+                            <span class="link-icon">⚠️</span> Flagged Issues
+                        </li>
+                        <li onclick="suggestQuery('what is the grade change history of Ali?')">
+                            <span class="link-icon">📜</span> Change History
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-section info-box">
+                    <h2>Active Model</h2>
+                    <div class="model-badge">
+                        <span class="pulse-dot"></span>
+                        Llama 3.3 70B (Groq)
+                    </div>
+                    <p class="desc">Using text-based tool execution for 100% stability.</p>
+                </div>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <span class="status-indicator online"></span>
+                <span class="status-text">Connected to Server</span>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h2>Interactive Assistant</h2>
+                    <p>Ask questions about team resources, emails, practices, or propose database edits.</p>
+                </div>
+                <div class="system-status">
+                    <span id="ws-status" class="status-pill status-loading">Connecting...</span>
+                </div>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message system-message">
+                    <div class="message-content">
+                        <strong>Welcome to the Resource Management Chatbot!</strong><br>
+                        Ask me things like:<br>
+                        • <em>"Who is in Software - TSF?"</em><br>
+                        • <em>"What is the email and job title of Ehsan Ismail?"</em><br>
+                        • <em>"Propose changing Usman's grade to L3"</em>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status Indicator Overlay -->
+            <div class="chat-status-bar" id="chat-status-bar" style="display: none;">
+                <span class="typing-indicator-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span id="chat-status-text">Thinking...</span>
+            </div>
+
+            <footer class="chat-footer">
+                <form id="chat-form" class="chat-form">
+                    <input 
+                        type="text" 
+                        id="chat-input" 
+                        placeholder="Type your question here (e.g. 'what is the email of Ehsan Ismail')..." 
+                        autocomplete="off" 
+                        required
+                    >
+                    <button type="submit" id="send-btn">
+                        <span class="btn-text">Send</span>
+                        <span class="btn-icon">✈️</span>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

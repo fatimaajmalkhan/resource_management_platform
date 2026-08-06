@@ -1,0 +1,36 @@
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Frontend Node Modules & Builds
+frontend/node_modules/
+frontend/dist/
+frontend/npm-debug.log
+
+# Database & SQLite files
+*.db
+*.db-journal
+*.db-wal
+
+# Local Environment Variables
+.env
+.env*.local
+
+# Python Caches & Compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+
+# Git & IDEs
+.git/
+.gitignore
+.vscode/
+.idea/
+.claude/
+.agents/

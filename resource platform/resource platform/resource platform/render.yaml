@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: resource-platform
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: DISABLE_EXCEL_SYNC
+        value: "true"
+      - key: GEMINI_API_KEY
+        sync: false  # User will be prompted to paste their key in the Render dashboard
+      - key: DATABASE_URL
+        value: sqlite:///resource_platform.db
