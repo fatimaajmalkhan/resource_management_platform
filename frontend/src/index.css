@@ -2079,7 +2079,6 @@ h1, h2, h3 {
 .btn-save:focus-visible,
 .btn-cancel:focus-visible,
 .chat-form button:focus-visible,
-.chat-form input:focus-visible,
 .filters-grid input:focus-visible,
 .filters-grid select:focus-visible {
     outline: 2px solid var(--primary-color);
