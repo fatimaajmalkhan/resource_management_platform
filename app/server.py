@@ -92,8 +92,11 @@ app.add_middleware(
 # Get path of frontend build directory
 DIST_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend", "dist")
 
-# Mount assets folder
-app.mount("/assets", StaticFiles(directory=os.path.join(DIST_DIR, "assets")), name="assets")
+# Mount assets folder (skipped if the frontend hasn't been built yet, e.g. a
+# fresh clone or test collection before `npm run build` has run)
+ASSETS_DIR = os.path.join(DIST_DIR, "assets")
+if os.path.isdir(ASSETS_DIR):
+    app.mount("/assets", StaticFiles(directory=ASSETS_DIR), name="assets")
 
 @app.on_event("startup")
 async def start_excel_poll_loop():
