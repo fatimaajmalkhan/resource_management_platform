@@ -1,5 +1,5 @@
 # Stage 1: Build the React frontend
-FROM node:20 AS frontend-builder
+FROM node:20-slim AS frontend-builder
 WORKDIR /frontend
 COPY frontend/package*.json ./
 RUN npm ci
@@ -31,4 +31,4 @@ EXPOSE 8000
 ENV PORT=8000
 ENV DISABLE_EXCEL_SYNC=true
 
-CMD uvicorn app.server:app --host 0.0.0.0 --port $PORT
+CMD ["sh", "-c", "uvicorn app.server:app --host 0.0.0.0 --port $PORT"]
