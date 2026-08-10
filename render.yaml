@@ -1,3 +1,8 @@
+databases:
+  - name: resource-platform-db
+    plan: free
+    postgresMajorVersion: 16
+
 services:
   - type: web
     name: resource-platform
@@ -12,4 +17,6 @@ services:
       - key: GEMINI_API_KEY
         sync: false  # User will be prompted to paste their key in the Render dashboard
       - key: DATABASE_URL
-        value: sqlite:///resource_platform.db
+        fromDatabase:
+          name: resource-platform-db
+          property: connectionString
